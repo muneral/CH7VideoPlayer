@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">Video Player</string>
+    <string name="app_name">ZVideoPlayer</string>
+    <!--<string name="myvideo">It is dog</string>-->
 </resources>

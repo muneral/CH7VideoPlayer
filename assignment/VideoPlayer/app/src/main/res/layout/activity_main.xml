@@ -1,30 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:id="@+id/activity_main"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/textView"
+
+    <FrameLayout
+        android:id="@+id/fr_video"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_height="360dp">
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="161dp"
-        android:layout_height="110dp"
-        android:layout_marginBottom="100dp"
-        android:scaleType="fitCenter"
-        app:layout_constraintBottom_toTopOf="@+id/textView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@mipmap/ic_launcher" />
+        <com.bytedance.videoplayer.playvideo
+            android:id="@+id/PVideo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
 
-</android.support.constraint.ConstraintLayout>
+        <LinearLayout
+            android:id="@+id/Bottom"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_gravity="bottom"
+            android:orientation="vertical">
+
+            <SeekBar
+                android:id="@+id/VSeekbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:indeterminate="false"
+                android:max="100"
+                android:progress="0" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#555555"
+                android:gravity="center_vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical">
+
+                    <Button
+                        android:id="@+id/buttonP"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:text="Pause" />
+
+                    <Button
+                        android:id="@+id/Fullscreen"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:layout_toRightOf="@id/buttonP"
+                        android:text="横/竖屏"
+                        android:layout_toEndOf="@id/buttonP"/>
+
+                    <TextView
+                        android:id="@+id/VTime"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="00:00:00"
+                        android:textColor="#FFFFFF"
+                        android:textSize="12sp" />
+                </LinearLayout>
+            </RelativeLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:gravity="center">
+        </LinearLayout>
+
+    </FrameLayout>
+</RelativeLayout>
